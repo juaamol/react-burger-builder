@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Aux from '../../../hoc/Auxiliar';
 import Button from '../../UI/Button/Button';
 
-const orderSummary = (props) => {
-    const ingredientSummary = Object.keys(props.ingredients)
-        .map((ingredient) => (
-            <li key={ingredient}>
-                <span style={{ textTransform: 'capitalize' }}>{ingredient}</span>: {props.ingredients[ingredient]}
-            </li>));
+class OrderSummary extends Component {
+    componentWillUpdate() {
+        console.log('Will update');
+    }
 
-    return (
-        <Aux>
-            <h3>Your order</h3>
-            <p>A burguer with the following ingrediets:</p>
-            <ul>
-                {ingredientSummary}
-            </ul>
-            <p><strong>Total price: {props.price.toFixed(2)}</strong></p>
-            <p>Continue to checkout?</p>
-            <Button btnType="Danger" clicked={props.purchaseCancelled}>CANCEL</Button>
-            <Button btnType="Success" clicked={props.purchaseContinued}>CONTINUE</Button>
-        </Aux>
-    )
-};
+    render() {
+        const ingredientSummary = Object.keys(this.props.ingredients)
+            .map((ingredient) => (
+                <li key={ingredient}>
+                    <span style={{ textTransform: 'capitalize' }}>{ingredient}</span>: {this.props.ingredients[ingredient]}
+                </li>));
 
-export default orderSummary;
+        return (
+            <Aux>
+                <h3>Your order</h3>
+                <p>A burguer with the following ingrediets:</p>
+                <ul>
+                    {ingredientSummary}
+                </ul>
+                <p><strong>Total price: {this.props.price.toFixed(2)}</strong></p>
+                <p>Continue to checkout?</p>
+                <Button btnType="Danger" clicked={this.props.purchaseCancelled}>CANCEL</Button>
+                <Button btnType="Success" clicked={this.props.purchaseContinued}>CONTINUE</Button>
+            </Aux>
+        )
+    }
+}
+
+export default OrderSummary;

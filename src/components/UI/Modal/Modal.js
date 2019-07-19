@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import classes from './Modal.css';
 import Aux from '../../../hoc/Auxiliar';
 import Backdrop from '../Backdrop/Backdrop';
@@ -17,4 +17,9 @@ const modal = (props) => (
     </Aux>
 );
 
-export default modal;
+function shouldUpdate(prevProps, nextProps) {
+    console.log("updated: " + prevProps.show + " " + nextProps.show)
+    return prevProps.show === nextProps.show;
+}
+
+export default memo(modal, shouldUpdate);
