@@ -19,7 +19,7 @@ const modal = (props) => (
 
 function shouldUpdate(prevProps, nextProps) {
     console.log("updated: " + prevProps.show + " " + nextProps.show)
-    return prevProps.show === nextProps.show;
+    return prevProps.show === nextProps.show && prevProps.children === nextProps.children;
 }
 
 export default memo(modal, shouldUpdate);
