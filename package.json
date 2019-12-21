@@ -2,7 +2,7 @@
   "name": "react-burger-builder",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://juaamol.github.io/react-recipes",
+  "homepage": "https://juaamol.github.io/react-burger-builder/",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "axios": "^0.19.0",
